@@ -23,12 +23,24 @@ namespace CarLotSimulator
              * Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
              * At the end iterate through the list printing each of car's Year, Make, and Model to the console*/
             #endregion
-    
+
+            #region Static Keyword Exercise2 Instructions
+            /*create a CarLot class with a static field called numberOfCars.
+             * Have this number only increment when in our program we create a new Car. 
+             * From there create 3 cars in the Main() and then each time you create a car, 
+             * - do a Console.WriteLine() printing the current number of cars in the car lot.*/
+
+            #endregion
+
+            CarLot brittanysCarLot = new CarLot();
+
             var brittanysCar = new Car();
             brittanysCar.Year = 2008;
             brittanysCar.Make = "Toyota";
             brittanysCar.Model = "Yaris";
             brittanysCar.IsDriveable = true;
+            brittanysCarLot.carsList.Add(brittanysCar);
+            brittanysCarLot.GetCar(brittanysCar);
             Console.WriteLine($"Number of cars in Car lot: {CarLot.NumberOfCars}");
 
             Car yoongisCar = new Car() 
@@ -39,21 +51,19 @@ namespace CarLotSimulator
                 IsDriveable = true,
                 EngineNoise = "purrrrr",
                 HonkNoise = "honk"
-            };
-
+            };          
+            brittanysCarLot.carsList.Add(yoongisCar);
+            brittanysCarLot.GetCar(yoongisCar);
             Console.WriteLine($"Number of cars in Car lot: {CarLot.NumberOfCars}");
 
             Car jiminsCar = new Car(2018, "Mercedes", "Benz", "vroom vroom", "beep beep", true);
+            brittanysCarLot.carsList.Add(jiminsCar);         
+            brittanysCarLot.GetCar(jiminsCar);
             Console.WriteLine($"Number of cars in Car lot: {CarLot.NumberOfCars}");
-           
-            CarLot brittanysCarLot = new CarLot();
-            brittanysCarLot.carsList.Add(brittanysCar);
-          
-            brittanysCarLot.carsList.Add(yoongisCar);
-            
-            brittanysCarLot.carsList.Add(jiminsCar);
-           
-            brittanysCarLot.GetCars();         
+
+            Console.WriteLine("\n-------------------------------------------------------------------");
+            brittanysCarLot.GetCars();
+            Console.WriteLine($"\nTotal cars in Car lot: {CarLot.NumberOfCars}");
         }    
     }
 }
